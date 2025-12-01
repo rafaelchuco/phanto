@@ -76,6 +76,15 @@ const Products = () => {
                     });
                 }
 
+                const searchParam = searchParams.get('search');
+                if (searchParam) {
+                    const query = searchParam.toLowerCase();
+                    filteredProducts = filteredProducts.filter(p =>
+                        (p.name && p.name.toLowerCase().includes(query)) ||
+                        (p.description && p.description.toLowerCase().includes(query))
+                    );
+                }
+
                 setProductos(filteredProducts);
             } catch (err) {
                 setError(err.message);
@@ -154,6 +163,10 @@ const Products = () => {
                     <div>
                         <h2 className="section-title">
                             {(() => {
+                                const searchParam = searchParams.get('search');
+                                if (searchParam) {
+                                    return `Resultados de búsqueda: "${searchParam}"`;
+                                }
                                 const marcaParam = searchParams.get('brand') || searchParams.get('marca');
                                 if (marcaParam) {
                                     // Intentar encontrar el nombre de la marca en los productos filtrados
