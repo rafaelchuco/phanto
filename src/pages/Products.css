@@ -1,0 +1,99 @@
+
+.products-page {
+  padding-top: 80px; /* Space for fixed navbar */
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Reusing styles from Home.css via global classes or imports would be ideal, 
+   but for now we ensure specific styles are present if not global */
+
+.productos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.filtros {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  padding: 10px 20px;
+  border-radius: 24px;
+  background: white;
+  color: #2d3436;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #e8e8e8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.filtro-btn:hover {
+  border-color: #d4a574;
+  color: #d4a574;
+}
+
+.filtro-btn.active {
+  background: #2d3436;
+  color: white;
+  border-color: #2d3436;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+/* Pagination */
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+  padding: 24px 0;
+}
+
+.pagination-btn {
+  padding: 12px 24px;
+  background: #ffffff;
+  color: #2d3436;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #2d3436;
+  color: #ffffff;
+  border-color: #2d3436;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: 0.95rem;
+  color: #636e72;
+  font-weight: 500;
+  padding: 0 16px;
+}

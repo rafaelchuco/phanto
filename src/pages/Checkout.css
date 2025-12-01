@@ -1,0 +1,494 @@
+/* src/pages/Checkout.css */
+
+.checkout-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 120px 0 80px;
+}
+
+.checkout-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.checkout-header h1 {
+  font-family: 'Arimo', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #2d3436;
+  letter-spacing: -1px;
+}
+
+/* Steps Indicator */
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #dfe6e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 600;
+  color: #b2bec3;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-size: 1.1rem;
+}
+
+.step.active .step-number {
+  background: #2d3436;
+  border-color: #2d3436;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(45, 52, 54, 0.2);
+  transform: scale(1.1);
+}
+
+.step-label {
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #b2bec3;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.step.active .step-label {
+  color: #2d3436;
+  font-weight: 700;
+}
+
+.step-line {
+  height: 2px;
+  background: #dfe6e9;
+  flex: 1;
+  min-width: 60px;
+  margin: -28px 10px 0;
+  transition: all 0.4s ease;
+}
+
+.step-line.active {
+  background: #2d3436;
+}
+
+/* Content Layout */
+.checkout-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left Column: Summary */
+.resumen-carrito {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  border: 1px solid #f1f2f6;
+}
+
+.resumen-titulo {
+  font-family: 'Arimo', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #2d3436;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.resumen-items {
+  max-height: 500px;
+  overflow-y: auto;
+  margin-bottom: 32px;
+  padding-right: 10px;
+}
+
+.resumen-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resumen-items::-webkit-scrollbar-thumb {
+  background-color: #dfe6e9;
+  border-radius: 3px;
+}
+
+.resumen-item {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #f8f9fa;
+  transition: background 0.3s ease;
+}
+
+.resumen-item:last-child {
+  border-bottom: none;
+}
+
+.item-imagen {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f2f6;
+  flex-shrink: 0;
+}
+
+.item-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagen-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f2f6;
+  color: #dfe6e9;
+}
+
+.item-detalles {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-detalles h4 {
+  margin: 0 0 8px 0;
+  font-family: 'Arimo', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3436;
+  line-height: 1.4;
+}
+
+.item-cantidad {
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.9rem;
+  color: #636e72;
+  margin: 0 0 4px 0;
+}
+
+.item-precio {
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.9rem;
+  color: #b2bec3;
+  margin: 0;
+}
+
+.item-subtotal {
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2d3436;
+  text-align: right;
+  min-width: 100px;
+  align-self: center;
+}
+
+.resumen-totales {
+  border-top: 2px solid #f1f2f6;
+  padding-top: 24px;
+}
+
+.total-linea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 1rem;
+}
+
+.total-linea span:first-child {
+  color: #636e72;
+}
+
+.total-linea span:last-child {
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.total-linea.total {
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-top: 1px solid #f1f2f6;
+  padding-top: 20px;
+  margin-top: 20px;
+  color: #2d3436;
+  align-items: center;
+}
+
+.envio-gratis-info {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Right Column: Forms & Actions */
+.checkout-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-step-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f2f6;
+}
+
+.checkout-step-content h2 {
+  font-family: 'Arimo', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2d3436;
+}
+
+.checkout-step-content > p {
+  color: #636e72;
+  margin-bottom: 32px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3436;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Arimo', sans-serif;
+  transition: all 0.3s ease;
+  background-color: #fcfcfc;
+  color: #2d3436;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2d3436;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(45, 52, 54, 0.1);
+}
+
+/* Payment Methods */
+.metodos-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.metodo-contenido {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #dfe6e9;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.metodo-pago input[type="radio"]:checked + .metodo-contenido {
+  border-color: #2d3436;
+  background: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.metodo-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f2f6;
+  border-radius: 10px;
+  color: #636e72;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.metodo-pago input[type="radio"]:checked + .metodo-contenido .metodo-icon {
+  background: #2d3436;
+  color: #ffffff;
+}
+
+.metodo-info h4 {
+  margin: 0 0 4px 0;
+  font-family: 'Arimo', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.metodo-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #636e72;
+}
+
+/* Buttons */
+.paso-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.btn {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #2d3436;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 52, 54, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #636e72;
+  border: 1px solid #dfe6e9;
+}
+
+.btn-secondary:hover {
+  background: #f1f2f6;
+  color: #2d3436;
+  border-color: #b2bec3;
+}
+
+/* Confirmation */
+.confirmacion {
+  text-align: center;
+}
+
+.confirmacion-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  margin-bottom: 32px;
+  color: #2e7d32;
+}
+
+.confirmacion-detalles {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+  text-align: left;
+  border: 1px solid #f1f2f6;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .checkout-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .resumen-carrito {
+    position: relative;
+    top: auto;
+    order: 2; /* Move summary below forms on mobile if desired, or keep top */
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-page {
+    padding-top: 100px;
+  }
+
+  .checkout-steps {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .step-line {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
