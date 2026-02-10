@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { getImageUrl, getProductPrimaryImage } from '../utils/productImages';
+import { getProductPrimaryImage } from '../utils/productImages';
 import './Wishlist.css';
 
 const Wishlist = () => {

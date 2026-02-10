@@ -3,8 +3,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { orderAPI, API_URL } from '../services/api';
-import { getImageUrl, getProductPrimaryImage } from '../utils/productImages';
+import { orderAPI } from '../services/api';
+import { getProductPrimaryImage } from '../utils/productImages';
 import StripePaymentForm from '../components/StripePaymentForm';
 import './Checkout.css';
 

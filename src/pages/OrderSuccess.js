@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './OrderSuccess.css';
 
 const OrderSuccess = () => {

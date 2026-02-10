@@ -3,21 +3,13 @@ import React, { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useBestSellers, useNewProducts, useFeaturedProducts } from '../hooks/useProducts';
-import { getImageUrl, getProductPrimaryImage } from '../utils/productImages';
+import { getProductPrimaryImage } from '../utils/productImages';
 import { productAPI } from '../services/api';
-import SearchBar from '../components/SearchBar';
 import './Home.css';
 
 const Home = () => {
   const [searchParams] = useSearchParams();
-  const categoriaParam = searchParams.get('categoria');
-  const {
-    wishlist,
-    addToWishlistAsync,
-    removeWishlistItemAsync,
-    isAddingToWishlist,
-    isRemovingWishlist
-  } = useCart();
+  const { wishlist } = useCart();
 
   const { data: bestSellers, isLoading: loadingBestSellers } = useBestSellers();
   const { data: newProducts, isLoading: loadingNew } = useNewProducts();

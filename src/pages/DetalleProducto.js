@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { productAPI, API_URL } from '../services/api';
+import { productAPI } from '../services/api';
 import { useProductDetail, useRelatedProducts, useProductReviews, useCreateReview } from '../hooks/useProducts';
 import { getImageUrl, getProductPrimaryImage } from '../utils/productImages';
 import './DetalleProducto.css';
@@ -33,7 +33,7 @@ const DetalleProducto = () => {
   });
 
   // Siempre intentar cargar por slug
-  const { data: productoBySlug, isLoading: loadingSlug, error: errorSlug } = useProductDetail(slug);
+  const { data: productoBySlug, isLoading: loadingSlug } = useProductDetail(slug);
 
   const { data: relatedProducts } = useRelatedProducts(slug);
 
@@ -61,8 +61,6 @@ const DetalleProducto = () => {
     review_count: productoBySlug.review_count || 0,
     primary_image: productoBySlug.primary_image || productoBySlug.image || '',
     images: productoBySlug.images || [],
-    // Ensure description is captured
-    descripcion: productoBySlug.description || productoBySlug.descripcion || '',
   } : null;
   // Debug log description
   console.log('🔎 Descripción del producto:', producto?.descripcion);

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useOrders } from '../hooks/useOrders';
 import { getImageUrl } from '../utils/productImages';
+import { API_URL } from '../services/api';
 import OrderProductImage from '../components/OrderProductImage';
 import './Orders.css';
 
@@ -19,7 +20,7 @@ const Orders = () => {
     isCancelling
   } = useOrders();
 
-  const { data: ordersData, isLoading: loading, error: queryError, refetch } = useGetOrders();
+  const { data: ordersData, isLoading: loading, error: queryError } = useGetOrders();
 
   // Local error state for non-query errors (like download failures)
   const [actionError, setActionError] = useState('');
@@ -52,7 +53,7 @@ const Orders = () => {
     try {
       // Direct fetch for blob download as it's a specific file handling case
       // or we could add a specific hook method if we wanted to abstract this further
-      const response = await fetch(`http://127.0.0.1:8000/api/orders/${orderNumber}/invoice/`, {
+      const response = await fetch(`${API_URL}/api/orders/${orderNumber}/invoice/`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')).access : ''}`
         }

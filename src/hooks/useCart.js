@@ -271,6 +271,5 @@ export const useCartAPI = () => {
     // Success / error flags
     addItemSuccess: addItemMutation.isSuccess,
     addItemError: addItemMutation.error,
-    wishlistError,
   };
 };
