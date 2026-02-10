@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useBestSellers, useNewProducts, useFeaturedProducts } from '../hooks/useProducts';
 import { getProductPrimaryImage } from '../utils/productImages';
@@ -8,7 +8,6 @@ import { productAPI } from '../services/api';
 import './Home.css';
 
 const Home = () => {
-  const [searchParams] = useSearchParams();
   const { wishlist } = useCart();
 
   const { data: bestSellers, isLoading: loadingBestSellers } = useBestSellers();
